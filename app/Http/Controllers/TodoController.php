@@ -20,7 +20,9 @@ class TodoController extends Controller
 
     public function store(Request $request)
     {
-        return Todo::create($request->all());
+        $todo = Todo::create($request->all());
+
+        return response()->json($todo, 201);
     }
 
     public function update(Request $request, Todo $todo)
@@ -34,6 +36,6 @@ class TodoController extends Controller
     {
         $todo->delete();
 
-        return 204;
+        return response()->json(null, 204);
     }
 }
