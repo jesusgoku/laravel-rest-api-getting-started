@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('todos', 'TodoController@index');
+Route::post('todos', 'TodoController@store');
+Route::get('todos/{todo}', 'TodoController@show');
+Route::patch('todos/{todo}', 'TodoController@update');
+Route::delete('todos/{todo}', 'TodoController@delete');
